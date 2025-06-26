@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dynamic Progress Bars</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+    }
+
+    .progress-container {
+      margin-top: 20px;
+    }
+
+    .progress-bar {
+      width: 100%;
+      background-color: #eee;
+      border-radius: 5px;
+      overflow: hidden;
+      margin-bottom: 10px;
+      height: 20px;
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 0;
+      background-color: #4caf50;
+      transition: width 2s linear;
+    }
+  </style>
+</head>
+<body>
+
+  <button onclick="addProgressBar()">Add</button>
+
+  <div class="progress-container" id="progressContainer"></div>
+
+  <script>
+    function addProgressBar() {
+      const container = document.getElementById('progressContainer');
+
+      // Create progress bar structure
+      const bar = document.createElement('div');
+      bar.className = 'progress-bar';
+
+      const fill = document.createElement('div');
+      fill.className = 'progress-fill';
+
+      bar.appendChild(fill);
+      container.appendChild(bar);
+
+      // Trigger the transition after a slight delay to ensure it's rendered
+      setTimeout(() => {
+        fill.style.width = '100%';
+      }, 50);
+    }
+  </script>
+
+</body>
+</html>
